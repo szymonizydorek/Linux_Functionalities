@@ -1,0 +1,25 @@
+#!/bin/bash
+VERSION=$(sudo command tcpdump --version | awk 'NR==2 {print $3}')
+if [[ $VERSION != 0 ]]
+  then
+    echo 'TCPDUMP is installed'
+else
+  echo 'TCPDUMP is not installed'
+fi
+
+select_interface(){
+  echo "AVAILABLE INTERFACES: "
+  printf "\n"
+  ifconfig | grep -i UP | awk '{print $1}' | sed 's/:/ /g' | grep '^en'
+  read -p "ENTER INTERFACE NAME: " INTERFACE 
+  
+} 
+
+select_interface
+
+echo "STARTING PACKET CAPTURE ON INTERFACE: $INTERFACE"
+
+echo "OUTPUT FILE IS SAVED TO: /tmp/file2.txt"
+
+sudo tcpdump -i $INTERFACE -c 10 > /tmp/file2.txt 
+echo "DONE"
