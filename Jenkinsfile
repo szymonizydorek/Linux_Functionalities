@@ -1,7 +1,7 @@
 pipeline {
     ageny any
     stages {
-        stage('Build') {
+        stage('Building') {
             steps{
                 sh 'echo "Build Completed"'
             }
