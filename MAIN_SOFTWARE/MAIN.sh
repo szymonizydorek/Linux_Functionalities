@@ -13,4 +13,14 @@ while [[ $while_loop_choice != "y" ]]; do
     sleep 0.5 
     echo -e "Options:\n 1. NETWORKING"
     read -p  "Provide your choice: " Choice_1
+
+    if [ "$Choice_1" = 1 ];then
+      Function_Ping1
+
+    elif [ "$Choice_1" = 2 ];then
+      Function_tcpdump2
+
+    else
+      echo "This option is not supported"
+   fi
 done
