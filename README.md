@@ -1,2 +1,2 @@
-# Linux_Functionalities
+# Linux Functionalities
 Triggering job
